@@ -9,13 +9,6 @@ namespace AppCrud01.Domain.Interfaces
 {
     public interface IItensCarrinhoService
     {
-        public bool GetItensCarrinhos(int idCar)
-        {
-            if(idCar < 1)
-            {
-                return false;
-            }
-            return true;
-        }
+        public bool Valida(int idCar);
     }
 }
