@@ -28,9 +28,9 @@ namespace AppCrud01.Domain.Entities
             return true;
         }
 
-        public bool ValidaIdCarProd(int idCar, int idProd)
+        public bool Valida(int idCar, int idProd)
         {
-            if (idCar < 1 && idProd < 1)
+            if (idCar < 1 || idProd < 1)
             {
                 return true;
             }
