@@ -1,4 +1,4 @@
-﻿using AppCrud01.Domain.Entities;
+using AppCrud01.Domain.Entities;
 using AppCrud01.Domain.Interfaces;
 using Moq;
 using System;
@@ -18,26 +18,27 @@ namespace AppCrud01.Teste
         {
 
             //Arrange
-            
+            int id = 4;
+            int id2 = 2;
             Carrinho carrinho = new Carrinho(4, 10.70, "10/10/2022", 21.30, 5);
             Produto produto = new Produto(2, "arroz", 2, 12.30, "Fornecedor1");
 
             Mock<IItensCarrinhoService> mock = new Mock<IItensCarrinhoService>();
-            mock.Setup(m => m.GetItensCarrinhos(1)).Returns(true);
+            mock.Setup(m => m.Valida(1)).Returns(true);
 
             //Act
             ItensCarrinho itens = new ItensCarrinho(mock.Object)
             {
                 Id = 1,
-                IdCarrinho = 4,
-                IdProduto = 2,
+                IdCarrinho = id,
+                IdProduto = id2,
                 ValorUnitario = 20.30,
                 Quantidade = 2
             };
 
             //Act
             
-            bool resultado = itens.ValidaIdCarProd(4, 2);
+            bool resultado = itens.Valida(id, id2);
             bool esperado = true;
 
             //Assert
